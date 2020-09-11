@@ -1,3 +1,33 @@
 * {
     font-family: 'Press Start 2P', cursive;
+    text-align: center;
+  }
+
+  .main-window {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      background-color: lightgray;
+  }
+
+  .left-column {
+    border: 0.5rem solid gray;
+  }
+
+  .right-column {
+      display: flex;
+      flex-flow: column;
+      border: 0.5rem solid gray;
+  }
+
+  .game-stats{
+      display: flex;
+      flex-flow: column;
+  }
+
+  .btn-play {
+      padding: 1.5rem;
+      font-size: 1rem;
+      margin: 1rem 3rem;
+      cursor: pointer;
+      border: 0.5rem solid black;
   }
