@@ -24,7 +24,8 @@ function play() {
 moves = {
     [KEY.LEFT]:  p => ({...p, x: p.x-1}),
     [KEY.RIGHT]: p => ({...p, x: p.x+1}),
-    [KEY.DOWN]:    p => ({...p, y: p.y+1}),
+    [KEY.DOWN]:  p => ({...p, y: p.y+1}),
+    [KEY.UP]:    p => board.rotate(p),
     [KEY.SPACE]: p => ({ ...p, y: p.y + 1 })
 }
 
@@ -52,7 +53,6 @@ document.addEventListener( "keydown", event =>{
             ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);
 
             board.piece.draw();
-            console.log(`x: ${p.x} y:${p.y} rows: ${ROWS}`);
         }
     }
 });
