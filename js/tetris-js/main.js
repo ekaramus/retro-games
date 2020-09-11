@@ -24,7 +24,8 @@ function play() {
 moves = {
     [KEY.LEFT]:  p => ({...p, x: p.x-1}),
     [KEY.RIGHT]: p => ({...p, x: p.x+1}),
-    [KEY.DOWN]:    p => ({...p, y: p.y+1})
+    [KEY.DOWN]:    p => ({...p, y: p.y+1}),
+    [KEY.SPACE]: p => ({ ...p, y: p.y + 1 })
 }
 
 //add the control with the keyboard
@@ -35,10 +36,17 @@ document.addEventListener( "keydown", event =>{
 
         //Get new state of piece
         let p = moves[event.keyCode](board.piece);
-
         if (board.valid(p)) {
-            //move the piece
+            if (event.keyCode === KEY.SPACE) {
+                // Hard drop
+                while (board.valid(p)) {
+                  board.piece.move(p);   
+                  p = moves[KEY.DOWN](board.piece);
+                }
+            } else {
+                //move the piece
             board.piece.move(p);
+            }
 
             //clear old drawing
             ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);
