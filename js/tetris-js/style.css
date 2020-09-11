@@ -16,6 +16,7 @@
   .right-column {
       display: flex;
       flex-flow: column;
+      justify-content: space-around;
       border: 0.5rem solid gray;
   }
 
