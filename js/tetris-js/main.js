@@ -20,3 +20,12 @@ function play() {
   board.piece = piece;
 }
 
+//Declaring possible moves
+moves = {
+    [KEY.LEFT]:  p => ({...p, x: p.x-1}),
+    [KEY.RIGHT]: p => ({...p, x: p.x+1}),
+    [KEY.UP]:    p => ({...p, y: p.y+1})
+}
+
+//add the control with the keyboard
+
