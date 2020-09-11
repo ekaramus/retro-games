@@ -1,15 +1,14 @@
 class Board {
     
-    constructor (context) {
-        this.context = context;
-        this.grid = this.getEmptyBoard();
+    constructor(ctx) {
+      this.ctx = ctx;
+      this.grid = this.getEmptyBoard();
     }
-
-    //Create an 2d array with 0s
+    
+    // Get matrix filled with zeros.
     getEmptyBoard() {
-        return Array.from(
-            {lenght: ROWS}, () => Array(ROWS).fill(0)
-        );
+      return Array.from(
+        {length: ROWS}, () => Array(COLS).fill(0)
+      );
     }
-
-}
+  }
