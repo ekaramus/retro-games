@@ -24,8 +24,28 @@ function play() {
 moves = {
     [KEY.LEFT]:  p => ({...p, x: p.x-1}),
     [KEY.RIGHT]: p => ({...p, x: p.x+1}),
-    [KEY.UP]:    p => ({...p, y: p.y+1})
+    [KEY.DOWN]:    p => ({...p, y: p.y+1})
 }
 
 //add the control with the keyboard
+document.addEventListener( "keydown", event =>{
+    if (moves[event.keyCode]) {
+        //stop the defualt action
+        event.preventDefault();
+
+        //Get new state of piece
+        let p = moves[event.keyCode](board.piece);
+
+        if (board.valid(p)) {
+            //move the piece
+            board.piece.move(p);
+
+            //clear old drawing
+            ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);
+
+            board.piece.draw();
+            console.log(`x: ${p.x} y:${p.y} rows: ${ROWS}`);
+        }
+    }
+});
 
