@@ -1,15 +1,15 @@
-const gameWindow = document.getElementById("game-board");
-const context = gameWindow.getContext("2d");
+const canvas = document.getElementById("gameBoard");
+const context = canvas.getContext("2d");
 
 let board;
 
 
 //Calculating the size of board with the params given in constants.js file
-context.gameWindow.width = COLS *BLOCK_SIZE;
-context.gameWindow.height = ROWS *BLOCK_SIZE;
+context.canvas.width = COLS * BLOCK_SIZE;
+context.canvas.height = ROWS *BLOCK_SIZE;
 
 //Setting the scale for the board
-context.scale(BLOCK_SIZE);
+context.scale(BLOCK_SIZE, BLOCK_SIZE);
 
 //Initializing the board
 function play() {
